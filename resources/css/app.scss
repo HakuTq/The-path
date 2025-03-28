@@ -16,6 +16,11 @@ $font-primary: 'Libre Baskerville', serif;
     font-family: $font-primary;
 }
 
+a {
+    color: $highlight;
+    text-decoration: underline;
+}
+
 .whole-page-container {
     background-color: $dark-bg;
     color: white;
@@ -54,12 +59,31 @@ $font-primary: 'Libre Baskerville', serif;
     gap: 1rem;
     color:white;
     text-decoration: none;
+    min-width: 300px;
+    min-height: 235px;
     
     &:hover {
         background-color: rgba(255, 255, 255, 0.1);
         transition: .5s;
         box-shadow: 0 0 20px $highlight-see-through;
         cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        min-width: 200px;
+        height: 80%;
+    }
+
+    @media (max-width: 480px) {
+        min-width: 150px;
+        height: 70%;
+        margin: 0 1rem;
+    }
+
+    @media (max-width: 360px) {
+        min-width: 110px;
+        height: 60%;
+        margin: 0 .5rem;
     }
 }
 
@@ -77,12 +101,30 @@ $font-primary: 'Libre Baskerville', serif;
     position: relative;
     color:white;
     text-decoration: none;
+    min-width: 300px;
+    min-height: 235px;
     
     &:hover {
         background-color: rgba(255, 255, 255, 0.1);
         transition: .5s;
         box-shadow: 0 0 20px $highlight-see-through;
         cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        min-width: 200px;
+        height: 80%;
+    }
+
+    @media (max-width: 480px) {
+        min-width: 150px;
+        height: 70%;
+        margin: 0 1rem;
+    }
+
+    @media (max-width: 360px) {
+        min-width: 110px;
+        height: 60%;
     }
 }
 
@@ -95,4 +137,92 @@ $font-primary: 'Libre Baskerville', serif;
     top: -.5rem;
     font-family: 'Poppins', sans-serif;
     font-family: $font-primary;
+    width: 100%;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: wrap-content;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.068);
+    border-radius: .5rem;
+    font-size: 1rem;
+}
+
+.register-form-field {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.register-form-input {
+    font-size: 1.2rem;
+    height: 2rem;
+    width: 100%;
+    border-radius: .3rem;
+    border: black 1px solid;
+}
+
+.register-form-label {
+    text-align: left;
+    width: 100%;
+    margin-top: 3.5%;
+}
+
+.register-form-label-error {
+    text-align: left;
+    margin-left: 2rem;
+    width: 100%;
+    margin-top: 1.5%;
+    color: red;
+    font-size: 0.8rem;
+}
+
+.register-form-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 1.5rem;
+    border-radius: .2rem;
+    border: black 1px solid;
+    padding: 10px;
+    font-size: .95rem;
+}
+
+.register-form-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 1rem;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+
+.login-form-checkbox-container {
+    margin-top: .5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.login-form-checkbox {
+    width: 1rem;
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: 0.2rem;
+    background-color: white;
+    display: inline-block;
+    position: relative;
 }
