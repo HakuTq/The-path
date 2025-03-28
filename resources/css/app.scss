@@ -1,6 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
 $primary-color: #1A1D1A;
 $secondary-color: #26413C;
-$dark-bg: #03120E;
+$dark-bg: #0f110f;
 $accent: #3E505B;
 $highlight: #8AB0AB;
 
+$highlight-see-through: rgba(138, 176, 171, 0.5);
+
+$font-primary: 'Libre Baskerville', serif;
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: $font-primary;
+}
+
+.whole-page-container {
+    background-color: $dark-bg;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.characters {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 50%;
+    padding: 1rem;
+}
+
+.character-container {
+    background-color: rgba(255, 255, 255, 0.068);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 18%;
+    border-radius: 1rem;
+    margin: 0 2rem;
+    transition: .5s;
+    position: relative;
+    font-size: 1.5rem;
+    gap: 1rem;
+    color:white;
+    text-decoration: none;
+    
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: .5s;
+        box-shadow: 0 0 20px $highlight-see-through;
+        cursor: pointer;
+    }
+}
+
+.character-container-empty {
+    background-color: rgba(255, 255, 255, 0.068);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 18%;
+    border-radius: 1rem;
+    margin: 0 2rem;
+    transition: .5s;
+    position: relative;
+    color:white;
+    text-decoration: none;
+    
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: .5s;
+        box-shadow: 0 0 20px $highlight-see-through;
+        cursor: pointer;
+    }
+}
+
+.character-name {
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    margin-top: 1rem;
+    position: absolute;
+    top: -.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-family: $font-primary;
+}

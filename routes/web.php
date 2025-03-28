@@ -12,4 +12,7 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
+Route::view('selection', 'selection')
+    ->name('selection');
+
 require __DIR__.'/auth.php';
