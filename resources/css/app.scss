@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
 
 $primary-color: #1A1D1A;
@@ -178,7 +181,6 @@ a {
 
 .register-form-label-error {
     text-align: left;
-    margin-left: 2rem;
     width: 100%;
     margin-top: 1.5%;
     color: red;
@@ -194,7 +196,8 @@ a {
     border-radius: .2rem;
     border: black 1px solid;
     padding: 10px;
-    font-size: .95rem;
+    font-size: 1rem;
+    letter-spacing: normal;
 }
 
 .register-form-bottom {
@@ -214,15 +217,65 @@ a {
     align-items: center;
     gap: .5rem;
     width: 100%;
+    margin-left: px;
     justify-content: flex-start;
 }
 
 .login-form-checkbox {
     width: 1rem;
-    height: 2rem;
+    height: 1rem;
     border: 1px solid black;
     border-radius: 0.2rem;
     background-color: white;
     display: inline-block;
     position: relative;
+}
+
+.profile-page-container {
+    background-color: $dark-bg;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.profile-header {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: $highlight;
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 90%;
+    max-width: 700px;
+}
+
+.profile-section {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+}
+
+.profile-section-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .profile-content {
+        width: 100%;
+        padding: 1rem;
+    }
 }
