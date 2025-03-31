@@ -11,14 +11,12 @@ class CharacterClass extends Model
 
     protected $table = 'character_class';
 
-    protected $fillable = [
-        'character_id',
-        'name',
-        'level',
-        'hit_die',
-        'racial_traits',
-        'class_features',
+    protected $casts = [
+        'racial_traits' => 'array',
+        'class_features' => 'array',
     ];
+
+    protected $fillable = ['character_id', 'name', 'level', 'hit_die', 'racial_traits', 'class_features'];
 
     public function character()
     {
