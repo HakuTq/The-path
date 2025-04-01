@@ -74,6 +74,26 @@ A barbarian can end her rage as a free action and is fatigued after rage for a n
 Any barbarian who meets the powers’ prerequisites can select and use rage powers. Totem rage powers grant powers related to a theme. A barbarian cannot select from more than one group of totem rage powers; for example, a barbarian who selects a beast totem rage power cannot later choose to gain any of the dragon totem rage powers (any rage power with “dragon totem” in its title).',
                 'easy' => 'A barbarian can use her rage in new ways.',
             ],
-        ]
+            'uncanny_dodge' => [
+                'level' => 2,
+                'type' => classFeatureTypes::Ex,
+                'description' => 'At 2nd level, a barbarian gains the ability to react to danger before her senses would normally allow her to do so. She cannot be caught flat-footed, nor does she lose her Dex bonus to AC if the attacker is invisible. She still loses her Dexterity bonus to armor class if immobilized. A barbarian with this ability can still lose her Dexterity bonus to armor class if an opponent successfully uses the feint action against her.
+If a barbarian already has uncanny dodge from a different class, she automatically gains improved uncanny dodge (see below) instead.',
+                'easy' => 'react to danger before senses would normally allow to do so'
+            ],
+            'trap_sense' => [
+                'level' => 3,
+                'type'=> classFeatureTypes::Ex,
+                'description' => 'At 3rd level, a barbarian gains a +1 bonus on Reflex saves made to avoid traps and a +1 dodge bonus to armor class against attacks made by traps. These bonuses increase by +1 every three barbarian levels thereafter (6th, 9th, 12th, 15th, and 18th level). Trap sense bonuses gained from multiple classes stack.',
+                'easy' => 'Avoids traps easily',
+                'progression' = 3
+            ],
+            'improved_uncanny_dodge' => [
+                'level' => 5,
+                'type'=> classFeatureTypes::Ex,
+                'description' => 'At 5th level and higher, a barbarian can no longer be flanked. This defense denies a rogue the ability to sneak attack the barbarian by flanking her, unless the attacker has at least four more rogue levels than the target has barbarian levels.
+If a character already has uncanny dodge (see above) from another class, the levels from the classes that grant uncanny dodge stack to determine the minimum rogue level required to flank the character.',
+                'easy' => 'A barbarian can no longer be flanked'    
+            ]
     ]
 ];
