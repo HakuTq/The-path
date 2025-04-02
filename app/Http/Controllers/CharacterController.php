@@ -3,22 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Character;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class CharacterController extends Controller
 {
-    public function show($id)
+    public function show(Character $character): RedirectResponse|View
     {
-        // Fetch the character by ID
-        $character = Character::find($id);
-
-        // Check if the character exists
         if (!$character) {
-            return response()->json(['message' => 'Character not found'], 404);
+            return redirect()->back()->withInput()->withErrors([
+                'character' => 'Character not found.',
+            ]);
         }
 
-        // Return the character details
-        return response()->json($character);
+        return view('characters.show', [
+            'character' => $character,
+        ]);
     }
 
     public function store(Request $request)
