@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Actions\Logout;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
@@ -15,7 +16,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('characters/{character}', [\App\Http\Controllers\CharacterController::class, 'show'])->name('characters.show');
 
     Route::get('characters/create', [\App\Http\Controllers\CharacterController::class, 'create'])->name('characters.create');
+
+    Route::post('/logout', Logout::class)->name('logout');
     
-    });
+});
 
 require __DIR__.'/auth.php';

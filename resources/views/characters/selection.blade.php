@@ -11,6 +11,7 @@
             @foreach ($characters as $character)
                 <a href="{{ route('characters.show', ['character' => $character]) }}" class="character-container">
                     <div class="character-class-container">
+                        Classes:
                         @foreach ($character->classes() as $class)
                             <p>{{ $class }}</p>
                         @endforeach

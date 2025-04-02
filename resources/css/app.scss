@@ -144,6 +144,7 @@ a {
 }
 
 .register-form {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -255,6 +256,11 @@ a {
     gap: 1.5rem;
     width: 90%;
     max-width: 700px;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        padding: 1rem;
+    }
 }
 
 .profile-section {
@@ -273,16 +279,90 @@ a {
     margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-    .profile-content {
-        width: 100%;
-        padding: 1rem;
-    }
-}
-
 .character-class-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.navbar {
+    box-sizing: border-box;
+    background-color: $primary-color;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    justify-items: center;
+    width: 100%;
+    padding: 1rem 2rem;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid $secondary-color;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+}
+
+.page-dark-bg {
+    background-color: $dark-bg;
+}
+
+.navbar-link {
+    display: inline-flex;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 0 .25rem;
+    transition: 0.3s;
+    background-color: $accent;
+    padding: 8px;
+    height: 32px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        text-decoration: underline;
+        transition: 0.3s
+    }
+
+    &:nth-child(2) {
+        margin-right: 25px;
+    }
+}
+
+.navbar-logout {
+    margin-left: 20px;
+    display: inline-flex;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 0 1rem;
+    transition: 0.3s;
+    background-color: $secondary-color;
+    padding: 8px;
+    height: 32px;
+    width: 178px;
+    border-radius: 10px;
+    transition: 0.3s;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        text-decoration: underline;
+        transition: 0.3s
+    }
+}
+
+.navbar-logo {
+    display: flex;
+    align-self: flex-start;
 }
