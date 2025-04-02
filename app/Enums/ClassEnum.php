@@ -115,7 +115,7 @@ enum ClassEnum: string
     public function description(): string
     {
         return match ($this) {
-            self::Alchemist => 'Alchemist',
+            self::Alchemist => 'Whether secreted away in a smoky basement laboratory or gleefully experimenting in a well-respected school of magic, the alchemist is often regarded as being just as unstable, unpredictable, and dangerous as the concoctions he brews. While some creators of alchemical items content themselves with sedentary lives as merchants, providing tindertwigs and smokesticks, the true alchemist answers a deeper calling. Rather than cast magic like a spellcaster, the alchemist captures his own magic potential within liquids and extracts he creates, infusing his chemicals with virulent power to grant him impressive skill with poisons, explosives, and all manner of self-transformative magic.',
             self::Antipaladin => 'Antipaladin',
             self::Arcanist => 'Arcanist',
             self::Barbarian => 'For some, there is only rage. In the ways of their people, in the fury of their passion, in the howl of battle, conflict is all these brutal souls know. Savages, hired muscle, masters of vicious martial techniques, they are not soldiers or professional warriors—they are the battle possessed, creatures of slaughter and spirits of war. Known as barbarians, these warmongers know little of training, preparation, or the rules of warfare; for them, only the moment exists, with the foes that stand before them and the knowledge that the next moment might hold their death. They possess a sixth sense in regard to danger and the endurance to weather all that might entail. These brutal warriors might rise from all walks of life, both civilized and savage, though whole societies embracing such philosophies roam the wild places of the world. Within barbarians storms the primal spirit of battle, and woe to those who face their rage.',
@@ -163,7 +163,7 @@ enum ClassEnum: string
     public function role(): string
     {
         return match ($this) {
-            self::Alchemist => 'Alchemist',
+            self::Alchemist => 'The alchemist`s reputation is not softened by his exuberance (some would say dangerous recklessness) in perfecting his magical extracts and potion-like creations, infusing these substances with magic siphoned from his aura and using his own body as experimental stock. Nor is it mollified by the alchemist`s almost gleeful passion for building explosive bombs and discovering strange new poisons and methods for their use. These traits, while making him a liability and risk for most civilized organizations and institutions of higher learning, seem to fit quite well with most adventuring groups.',
             self::Antipaladin => 'Antipaladin',
             self::Arcanist => 'Arcanist',
             self::Barbarian => 'Barbarians excel in combat, possessing the martial prowess and fortitude to take on foes seemingly far superior to themselves. With rage granting them boldness and daring beyond that of most other warriors, barbarians charge furiously into battle and ruin all who would stand in their way.',
@@ -211,7 +211,7 @@ enum ClassEnum: string
     public function alignment(): array
     {
         return match ($this) {
-            self::Alchemist => 'Alchemist',
+            self::Alchemist => AlignmentEnum::cases(),
             self::Antipaladin => 'Antipaladin',
             self::Arcanist => 'Arcanist',
             self::Barbarian => [AlignmentEnum::CE, AlignmentEnum::CG, AlignmentEnum::CN, AlignmentEnum::NE, AlignmentEnum::NN, AlignmentEnum::NG],
@@ -256,10 +256,10 @@ enum ClassEnum: string
     }
     #endregion
     #region Hit Dice
-    public function hitDie(): string
+    public function hitDie(): int
     {
         return match ($this) {
-            self::Alchemist => 'Alchemist',
+            self::Alchemist => 8,
             self::Antipaladin => 'Antipaladin',
             self::Arcanist => 'Arcanist',
             self::Barbarian => 'For some, there is only rage. In the ways of their people, in the fury of their passion, in the howl of battle, conflict is all these brutal souls know. Savages, hired muscle, masters of vicious martial techniques, they are not soldiers or professional warriors—they are the battle possessed, creatures of slaughter and spirits of war. Known as barbarians, these warmongers know little of training, preparation, or the rules of warfare; for them, only the moment exists, with the foes that stand before them and the knowledge that the next moment might hold their death. They possess a sixth sense in regard to danger and the endurance to weather all that might entail. These brutal warriors might rise from all walks of life, both civilized and savage, though whole societies embracing such philosophies roam the wild places of the world. Within barbarians storms the primal spirit of battle, and woe to those who face their rage.',
@@ -307,7 +307,7 @@ enum ClassEnum: string
     public function startingWealth(): string
     {
         return match ($this) {
-            self::Alchemist => 'Alchemist',
+            self::Alchemist => '3d6',
             self::Antipaladin => 'Antipaladin',
             self::Arcanist => 'Arcanist',
             self::Barbarian => 'For some, there is only rage. In the ways of their people, in the fury of their passion, in the howl of battle, conflict is all these brutal souls know. Savages, hired muscle, masters of vicious martial techniques, they are not soldiers or professional warriors—they are the battle possessed, creatures of slaughter and spirits of war. Known as barbarians, these warmongers know little of training, preparation, or the rules of warfare; for them, only the moment exists, with the foes that stand before them and the knowledge that the next moment might hold their death. They possess a sixth sense in regard to danger and the endurance to weather all that might entail. These brutal warriors might rise from all walks of life, both civilized and savage, though whole societies embracing such philosophies roam the wild places of the world. Within barbarians storms the primal spirit of battle, and woe to those who face their rage.',
@@ -639,9 +639,4 @@ enum ClassEnum: string
         };
     }
     #endregion
-    #endregion
-    public function __toString(): string
-    {
-        return $this->label();
-    }
 }
