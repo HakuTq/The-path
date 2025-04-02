@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Enums\AbilityEnum;
 use App\Enums\AlignmentEnum;
+use App\Enums\SkillsEnum;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -35,23 +37,20 @@ class CharacterFactory extends Factory
                 'Tiefling'
             ]),
             'ability_scores' => [
-                'Str' => $this->faker->numberBetween(3, 18),
-                'Dex' => $this->faker->numberBetween(3, 18),
-                'Con' => $this->faker->numberBetween(3, 18),
-                'Int' => $this->faker->numberBetween(3, 18),
-                'Wis' => $this->faker->numberBetween(3, 18),
-                'Cha' => $this->faker->numberBetween(3, 18),
+                AbilityEnum::Str => $this->faker->numberBetween(3, 18),
+                AbilityEnum::Dex => $this->faker->numberBetween(3, 18),
+                AbilityEnum::Con => $this->faker->numberBetween(3, 18),
+                AbilityEnum::Int => $this->faker->numberBetween(3, 18),
+                AbilityEnum::Wis => $this->faker->numberBetween(3, 18),
+                AbilityEnum::Cha => $this->faker->numberBetween(3, 18),
             ],
             'feats' => [
                 $this->faker->word(),
                 $this->faker->word(),
                 $this->faker->word()
             ],
-            'skills' => [
-                $this->faker->word(),
-                $this->faker->word(),
-                $this->faker->word()
-            ]
+            'skills' => $this->faker->randomElements(SkillsEnum::cases(), 5),
+            
         ];
     }
 }
