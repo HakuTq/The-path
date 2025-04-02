@@ -10,8 +10,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::view('profile', 'profile')->name('profile');
 
-    Route::view('selection', 'selection')->name('selection');
+    Route::get('characters', [\App\Http\Controllers\CharacterController::class, 'index'])->name('characters.index');
 
+    Route::get('characters/{character}', [\App\Http\Controllers\CharacterController::class, 'show'])->name('characters.show');
+
+    Route::get('characters/create', [\App\Http\Controllers\CharacterController::class, 'create'])->name('characters.create');
+    
     });
 
 require __DIR__.'/auth.php';

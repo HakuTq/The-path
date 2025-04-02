@@ -17,7 +17,7 @@ $login = function () {
 
     Session::regenerate();
 
-    $this->redirectIntended(default: route('selection', absolute: false), navigate: true);
+    $this->redirectIntended(default: route('characters.index', absolute: false), navigate: true);
 };
 
 ?>

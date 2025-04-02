@@ -34,7 +34,7 @@ $register = function () {
 
     Auth::login($user);
 
-    $this->redirect(route('selection', absolute: false), navigate: true);
+    $this->redirect(route('characters.index', absolute: false), navigate: true);
 };
 
 ?>

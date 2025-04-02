@@ -42,6 +42,24 @@ class Character extends Model
     {
         return $this->alignment;
     }
+
+    public function level(): int
+    {
+        $level = 0;
+        foreach ($this->characterClasses as $class) {
+            $level += $class->level;
+        }
+        return $level;
+    }
+
+    public function classes(): array
+    {
+        $classes = [];
+        foreach ($this->characterClasses as $class) {
+            $classes[] = $class->name;
+        }
+        return $classes;
+    }
     #endregion
     #region Relationships
     public function user()
