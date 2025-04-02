@@ -37,12 +37,12 @@ class CharacterFactory extends Factory
                 'Tiefling'
             ]),
             'ability_scores' => [
-                AbilityEnum::Str => $this->faker->numberBetween(3, 18),
-                AbilityEnum::Dex => $this->faker->numberBetween(3, 18),
-                AbilityEnum::Con => $this->faker->numberBetween(3, 18),
-                AbilityEnum::Int => $this->faker->numberBetween(3, 18),
-                AbilityEnum::Wis => $this->faker->numberBetween(3, 18),
-                AbilityEnum::Cha => $this->faker->numberBetween(3, 18),
+                AbilityEnum::Str->value => $this->faker->numberBetween(3, 18),
+                AbilityEnum::Dex->value => $this->faker->numberBetween(3, 18),
+                AbilityEnum::Con->value => $this->faker->numberBetween(3, 18),
+                AbilityEnum::Int->value => $this->faker->numberBetween(3, 18),
+                AbilityEnum::Wis->value => $this->faker->numberBetween(3, 18),
+                AbilityEnum::Cha->value => $this->faker->numberBetween(3, 18),
             ],
             'feats' => [
                 $this->faker->word(),
@@ -50,7 +50,7 @@ class CharacterFactory extends Factory
                 $this->faker->word()
             ],
             'skills' => $this->faker->randomElements(SkillsEnum::cases(), 5),
-            
+
         ];
     }
 }

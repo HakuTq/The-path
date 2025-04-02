@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum BABEnum : string
+enum BABEnum: string
 {
     case FULL = 'full';
     case THREE_QUARTERS = 'three_quarters';

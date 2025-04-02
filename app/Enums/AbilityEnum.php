@@ -17,7 +17,7 @@ enum AbilityEnum: string
             self::Str => "Strength",
             self::Dex => "Dexterity",
             self::Con => "Constitution",
-            self::Int => "Inteligence",
+            self::Int => "Intelligence",
             self::Wis => "Wisdom",
             self::Cha => "Charisma",
         };

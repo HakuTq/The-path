@@ -19,21 +19,21 @@ class Character extends Model
     ];
     #endregion
     #region Properties
-    public function abilityScore($ability):?int
+    public function abilityScore($ability): ?int
     {
         return $this->ability_scores[$ability] ?? null;
     }
-    public function abilityModifier($ability):?int
+    public function abilityModifier($ability): ?int
     {
-        $score = $this->getAbilityScore($ability);
+        $score = $this->abilityScore($ability);
         if ($score === null) return null;
         return floor(($score - 10) / 2);
     }
-    public function feats():array
+    public function feats(): array
     {
         return $this->feats;
     }
-    public function skills():array
+    public function skills(): array
     {
         return $this->skills;
     }
@@ -65,9 +65,12 @@ class Character extends Model
     {
         return $this->belongsTo(User::class);
     }
+
     public function characterClasses()
-    {
-        return $this->hasMany(CharacterClass::class);
-    }
+{
+    return $this->hasMany(CharacterClass::class)
+        ->orderBy('level', 'desc')
+        ->with('classFeatures');
+}
     #endregion
 }

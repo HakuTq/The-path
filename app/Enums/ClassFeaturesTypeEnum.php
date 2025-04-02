@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum ClassFeaturesTypeEnum : string
+enum ClassFeaturesTypeEnum: string
 {
     case Ex = 'Ex';
     case None = 'None';

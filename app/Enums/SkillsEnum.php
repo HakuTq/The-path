@@ -17,7 +17,7 @@ enum SkillsEnum: string
     case Fly = 'fly';
     case HandleAnimal = 'handle_animal';
     case Heal = 'heal';
-    case Intimidate = 'intimidate'; 
+    case Intimidate = 'intimidate';
     case KnowledgeArcana = 'knowledge_arcana';
     case KnowledgeDungeoneering = 'knowledge_dungeoneering';
     case KnowledgeEngineering = 'knowledge_engineering';
@@ -43,88 +43,148 @@ enum SkillsEnum: string
     case UseMagicDevice = 'use_magic_device';
 
     #region Label
-    public function label() : string {
-        return match($this){
+    public function label(): string
+    {
+        return match ($this) {
             self::Acrobatics => 'Acrobatics',
-            self:: Appraise => 'Appraise',
-            self:: Artistry=> 'Artistry',
-            self:: Bluff => 'Bluff',
-            self:: Climb => 'Climb',
-            self:: Craft  => 'Craft',
-            self:: Diplomacy => 'Diplomacy',
-            self:: DisableDevice => 'Disable Device',
-            self:: Disguise => 'Disguise',
-            self:: EscapeArtist => 'Escape Artist',
-            self:: Fly => 'Fly',
-            self:: HandleAnimal => 'Handle Animal',
-            self:: Heal => 'Heal',
-            self:: Intimidate => 'Intimidate',
-            self:: KnowledgeArcana => 'Knowledge Arcana',
-            self:: KnowledgeDungeoneering => 'Knowledge Dungeoneering',
-            self:: KnowledgeEngineering => 'Knowledge Engineering',
-            self:: KnowledgeGeography => 'Knowledge Geography',
-            self:: KnowledgeHistory => 'Knowledge History',
-            self:: KnowledgeLocal => 'Knowledge Local',
-            self:: KnowledgeNature => 'Knowledge Nature',
-            self:: KnowledgeNobility => 'Knowledge Nobility',
-            self:: KnowledgePlanes => 'Knowledge Planes',
-            self:: KnowledgeReligion => 'Knowledge Religion',
-            self:: Linguistics => 'Linguistics',
-            self:: Lore => 'Lore',
-            self:: Perception => 'Perception',
-            self:: Perform => 'Perform',
-            self:: Profession => 'Profession',
-            self:: Ride => 'Ride',
-            self:: SenseMotive => 'Sense Motive',
-            self:: SleightOfHand => 'Sleight of Hand',
-            self:: Spellcraft => 'Spellcraft',
-            self:: Stealth => 'Stealth',
-            self:: Survival => 'Survival',
-            self:: Swim => 'Swim',
-            self:: UseMagicDevice => 'Use Magic Device'
+            self::Appraise => 'Appraise',
+            self::Artistry => 'Artistry',
+            self::Bluff => 'Bluff',
+            self::Climb => 'Climb',
+            self::Craft  => 'Craft',
+            self::Diplomacy => 'Diplomacy',
+            self::DisableDevice => 'Disable Device',
+            self::Disguise => 'Disguise',
+            self::EscapeArtist => 'Escape Artist',
+            self::Fly => 'Fly',
+            self::HandleAnimal => 'Handle Animal',
+            self::Heal => 'Heal',
+            self::Intimidate => 'Intimidate',
+            self::KnowledgeArcana => 'Knowledge Arcana',
+            self::KnowledgeDungeoneering => 'Knowledge Dungeoneering',
+            self::KnowledgeEngineering => 'Knowledge Engineering',
+            self::KnowledgeGeography => 'Knowledge Geography',
+            self::KnowledgeHistory => 'Knowledge History',
+            self::KnowledgeLocal => 'Knowledge Local',
+            self::KnowledgeNature => 'Knowledge Nature',
+            self::KnowledgeNobility => 'Knowledge Nobility',
+            self::KnowledgePlanes => 'Knowledge Planes',
+            self::KnowledgeReligion => 'Knowledge Religion',
+            self::Linguistics => 'Linguistics',
+            self::Lore => 'Lore',
+            self::Perception => 'Perception',
+            self::Perform => 'Perform',
+            self::Profession => 'Profession',
+            self::Ride => 'Ride',
+            self::SenseMotive => 'Sense Motive',
+            self::SleightOfHand => 'Sleight of Hand',
+            self::Spellcraft => 'Spellcraft',
+            self::Stealth => 'Stealth',
+            self::Survival => 'Survival',
+            self::Swim => 'Swim',
+            self::UseMagicDevice => 'Use Magic Device'
         };
     }
     #endregion
     #region IsUntrained
-    public function isUntrained() : bool {
-        return match($this){
+    public function isUntrained(): bool
+    {
+        return match ($this) {
             self::Acrobatics => true,
-            self:: Appraise => true,
-            self:: Artistry=> false,
-            self:: Bluff => true,
-            self:: Climb => true,
-            self:: Craft  => false,
-            self:: Diplomacy => true,
-            self:: DisableDevice => false,
-            self:: Disguise => true,
-            self:: EscapeArtist => true,
-            self:: Fly => true,
-            self:: HandleAnimal => false,
-            self:: Heal => true,
-            self:: Intimidate => true,
-            self:: KnowledgeArcana => false,
-            self:: KnowledgeDungeoneering => false,
-            self:: KnowledgeEngineering =>false,
-            self:: KnowledgeGeography => false,
-            self:: KnowledgeHistory =>false,
-            self:: KnowledgeLocal => false,
-            self:: KnowledgeNature => false,
-            self:: KnowledgeNobility => false,
-            self:: KnowledgePlanes => false,
-            self:: KnowledgeReligion => false,
-            self:: Linguistics => false,
-            self:: Lore => false,
-            self:: Perception => true,
-            self:: Perform => false,
-            self:: Profession => true,
-            self:: Ride => true,
-            self:: SenseMotive => true,
-            self:: SleightOfHand => false,
-            self:: Spellcraft => false,
-            self:: Stealth => true,
-            self:: Survival => true,
-            self:: Swim => true,
-            self:: UseMagicDevice => false
+            self::Appraise => true,
+            self::Artistry => false,
+            self::Bluff => true,
+            self::Climb => true,
+            self::Craft  => false,
+            self::Diplomacy => true,
+            self::DisableDevice => false,
+            self::Disguise => true,
+            self::EscapeArtist => true,
+            self::Fly => true,
+            self::HandleAnimal => false,
+            self::Heal => true,
+            self::Intimidate => true,
+            self::KnowledgeArcana => false,
+            self::KnowledgeDungeoneering => false,
+            self::KnowledgeEngineering => false,
+            self::KnowledgeGeography => false,
+            self::KnowledgeHistory => false,
+            self::KnowledgeLocal => false,
+            self::KnowledgeNature => false,
+            self::KnowledgeNobility => false,
+            self::KnowledgePlanes => false,
+            self::KnowledgeReligion => false,
+            self::Linguistics => false,
+            self::Lore => false,
+            self::Perception => true,
+            self::Perform => false,
+            self::Profession => true,
+            self::Ride => true,
+            self::SenseMotive => true,
+            self::SleightOfHand => false,
+            self::Spellcraft => false,
+            self::Stealth => true,
+            self::Survival => true,
+            self::Swim => true,
+            self::UseMagicDevice => false
+        };
+    }
+    #endregion
+    #region TiedAbility
+
+    #Needs checking (Made by Copilot)
+    public function tiedAbility(): string
+    {
+        return match ($this) {
+            self::Acrobatics => 'Dexterity',
+            self::Appraise => 'Intelligence',
+            self::Artistry => 'Charisma',
+            self::Bluff => 'Charisma',
+            self::Climb => 'Strength',
+            self::Craft  => 'Intelligence',
+            self::Diplomacy => 'Charisma',
+            self::DisableDevice => 'Dexterity',
+            self::Disguise => 'Charisma',
+            self::EscapeArtist => 'Dexterity',
+            self::Fly => 'Dexterity',
+            self::HandleAnimal => 'Charisma',
+            self::Heal => 'Wisdom',
+            self::Intimidate => 'Charisma',
+            self::KnowledgeArcana => 'Intelligence',
+            self::KnowledgeDungeoneering => 'Intelligence',
+            self::KnowledgeEngineering => 'Intelligence',
+            self::KnowledgeGeography => 'Intelligence',
+            self::KnowledgeHistory => 'Intelligence',
+            self::KnowledgeLocal => 'Intelligence',
+            self::KnowledgeNature => 'Intelligence',
+            self::KnowledgeNobility => 'Intelligence',
+            self::KnowledgePlanes => 'Intelligence',
+            self::KnowledgeReligion => 'Intelligence',
+            self::Linguistics => 'Intelligence',
+            self::Lore => 'Wisdom',
+            self::Perception => 'Wisdom',
+            self::Perform => 'Charisma',
+            self::Profession => 'Wisdom',
+            self::Ride => 'Dexterity',
+            self::SenseMotive => 'Wisdom',
+            self::SleightOfHand => 'Dexterity',
+            self::Spellcraft => 'Intelligence',
+            self::Stealth => 'Dexterity',
+            self::Survival => 'Wisdom',
+            self::Swim => 'Strength',
+            self::UseMagicDevice => 'Charisma'
+        };
+    }
+    #endregion
+    #region HasArmorCheckPenalty
+    public function hasArmorCheckPenalty(): bool
+    {
+        return match ($this) {
+            self::Climb,
+            self::EscapeArtist,
+            self::Stealth,
+            self::Swim => true,
+            default => false
         };
     }
     #endregion
