@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ClassEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,6 +18,17 @@ class CharacterClass extends Model
     ];
 
     protected $fillable = ['character_id', 'name', 'level', 'hit_die', 'racial_traits', 'class_features'];
+
+    /*
+    #Prototype
+    public function class() : ClassEnum{
+        return ClassEnum::cases()->where('name' == name);
+    }
+
+    public function classFeature() : array {
+        return this::class()->where('level' <= level);
+    }
+    */
 
     public function character()
     {

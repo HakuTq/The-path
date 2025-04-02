@@ -19,26 +19,25 @@ class Character extends Model
     ];
     #endregion
     #region Properties
-    public function getAbilityScore($ability):?int
+    public function abilityScore($ability):?int
     {
         return $this->ability_scores[$ability] ?? null;
     }
-    public function getAbbilityModifier($ability):?int
+    public function abilityModifier($ability):?int
     {
         $score = $this->getAbilityScore($ability);
         if ($score === null) return null;
         return floor(($score - 10) / 2);
     }
-
-    public function getFeats():array
+    public function feats():array
     {
         return $this->feats;
     }
-    public function getSkills():array
+    public function skills():array
     {
         return $this->skills;
     }
-    public function getAlignment(): AlignmentEnum
+    public function alignment(): AlignmentEnum
     {
         return $this->alignment;
     }
