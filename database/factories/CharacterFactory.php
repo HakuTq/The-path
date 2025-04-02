@@ -19,7 +19,7 @@ class CharacterFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::factory(),
+            'user_id' => User::factory()->create(),
             'name' => "John " . $this->faker->name(),
             'gold' => $this->faker->numberBetween(0, 1000),
             'alignment' => $this->faker->randomElement(AlignmentEnum::cases())->value,

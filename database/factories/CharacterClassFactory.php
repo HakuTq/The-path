@@ -19,7 +19,7 @@ class CharacterClassFactory extends Factory
     public function definition(): array
     {
         return [
-            'character_id' => Character::factory(),
+            'character_id' => Character::factory()->create(),
             'name' => $this->faker->word(),
             'level' => $this->faker->numberBetween(1, 20),
             'hit_die' => $this->faker->randomElement([4, 6, 8, 10, 12]), // e.g., 8 for Fighter, 6 for Wizard
