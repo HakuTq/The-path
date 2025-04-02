@@ -23,9 +23,6 @@ $login = function () {
 ?>
 
 <div class="whole-page-container">
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-
     <form wire:submit="login" class="register-form">
         <!-- Email Address -->
         <div class="register-form-field">
@@ -63,5 +60,8 @@ $login = function () {
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
+
+        <!-- Session Status -->
+        <x-auth-session-status class="mb-4" :status="session('status')" style="position:absolute; bottom: -3rem;"/>
     </form>
 </div>

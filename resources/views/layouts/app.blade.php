@@ -16,8 +16,8 @@
         <!-- Scripts -->
         @vite(['resources/css/app.scss', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <body class="page-dark-bg">
+        <div>
 
             <!-- Page Heading -->
             @yield('header')

@@ -21,6 +21,10 @@ class CharacterController extends Controller
 
     public function show(Character $character): RedirectResponse|View
     {
+        if ($character->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         if (!$character) {
             return redirect()->back()->withInput()->withErrors([
                 'character' => 'Character not found.',
