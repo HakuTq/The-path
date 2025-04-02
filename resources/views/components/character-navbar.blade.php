@@ -1,7 +1,9 @@
 <div class="navbar">
     <div class="navbar-left">
         <!-- Logo or name -->
-        <p class="navbar-logo"> Logo </p>
+        <a href="{{ route('welcome') }}">
+            <img src="{{ asset('storage/images/logo.png') }}" alt="Logo" class="navbar-logo">
+        </a>
     </div>
     <div class="navbar-right">
         <a href="{{ route('characters.index') }}" class="navbar-link">Characters</a>
