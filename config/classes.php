@@ -1,22 +1,6 @@
 <?php
-class BABProgression
-{
-    const FULL = 'full';
-    const THREE_QUARTERS = 'three_quarters';
-    const HALF = 'half';
-}
 
-class SavesProgression
-{
-    const GOOD = 'good';
-    const BAD = 'bad';
-}
-
-class ClassFeatureTypes
-{
-    const Ex = 'Ex';
-}
-
+/*
 return [
     'barbarian' => [
         'description' => 'For some, there is only rage. In the ways of their people, in the fury of their passion, in the howl of battle, conflict is all these brutal souls know. Savages, hired muscle, masters of vicious martial techniques, they are not soldiers or professional warriors—they are the battle possessed, creatures of slaughter and spirits of war. Known as barbarians, these warmongers know little of training, preparation, or the rules of warfare; for them, only the moment exists, with the foes that stand before them and the knowledge that the next moment might hold their death. They possess a sixth sense in regard to danger and the endurance to weather all that might entail. These brutal warriors might rise from all walks of life, both civilized and savage, though whole societies embracing such philosophies roam the wild places of the world. Within barbarians storms the primal spirit of battle, and woe to those who face their rage.',
@@ -83,17 +67,19 @@ If a barbarian already has uncanny dodge from a different class, she automatical
             ],
             'trap_sense' => [
                 'level' => 3,
-                'type'=> classFeatureTypes::Ex,
+                'type' => classFeatureTypes::Ex,
                 'description' => 'At 3rd level, a barbarian gains a +1 bonus on Reflex saves made to avoid traps and a +1 dodge bonus to armor class against attacks made by traps. These bonuses increase by +1 every three barbarian levels thereafter (6th, 9th, 12th, 15th, and 18th level). Trap sense bonuses gained from multiple classes stack.',
                 'easy' => 'Avoids traps easily',
-                'progression' = 3
+                'progression' => 3,
             ],
             'improved_uncanny_dodge' => [
                 'level' => 5,
-                'type'=> classFeatureTypes::Ex,
+                'type' => classFeatureTypes::Ex,
                 'description' => 'At 5th level and higher, a barbarian can no longer be flanked. This defense denies a rogue the ability to sneak attack the barbarian by flanking her, unless the attacker has at least four more rogue levels than the target has barbarian levels.
 If a character already has uncanny dodge (see above) from another class, the levels from the classes that grant uncanny dodge stack to determine the minimum rogue level required to flank the character.',
-                'easy' => 'A barbarian can no longer be flanked'    
+                'easy' => 'A barbarian can no longer be flanked'
             ]
+        ]
     ]
 ];
+*/
