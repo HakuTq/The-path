@@ -67,10 +67,10 @@ class Character extends Model
     }
 
     public function characterClasses()
-{
-    return $this->hasMany(CharacterClass::class)
-        ->orderBy('level', 'desc')
-        ->with('classFeatures');
-}
+    {
+        return $this->hasMany(CharacterClass::class)
+            ->orderBy('level', 'desc')
+            ->with('classFeatures');
+    }
     #endregion
 }
