@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Enums\AbilityEnum;
 use App\Enums\AlignmentEnum;
+use App\Enums\HealthTypesEnum;
 use App\Enums\SkillsEnum;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -23,6 +24,7 @@ class CharacterFactory extends Factory
         return [
             'user_id' => User::factory()->create(),
             'name' => "John " . $this->faker->name(),
+            'health_type' => $this->faker->randomElement(HealthTypesEnum::cases())->value,
             'gold' => $this->faker->numberBetween(0, 1000),
             'alignment' => $this->faker->randomElement(AlignmentEnum::cases())->value,
             'race' => $this->faker->randomElement([
@@ -49,8 +51,13 @@ class CharacterFactory extends Factory
                 $this->faker->word(),
                 $this->faker->word()
             ],
-            'skills' => $this->faker->randomElements(SkillsEnum::cases(), 5),
-
+            'skill_ranks' => [
+                $this->faker->randomElement(SkillsEnum::cases())->value => $this->faker->numberBetween(0, 10),
+                $this->faker->randomElement(SkillsEnum::cases())->value => $this->faker->numberBetween(0, 10),
+                $this->faker->randomElement(SkillsEnum::cases())->value => $this->faker->numberBetween(0, 10),
+                $this->faker->randomElement(SkillsEnum::cases())->value => $this->faker->numberBetween(0, 10),
+                $this->faker->randomElement(SkillsEnum::cases())->value => $this->faker->numberBetween(0, 10),
+            ]
         ];
     }
 }

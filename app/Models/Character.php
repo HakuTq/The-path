@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\AlignmentEnum;
+use App\Enums\HealthTypesEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,10 +13,14 @@ class Character extends Model
     use HasFactory;
     protected $fillable = ['user_id', 'name', 'gold', 'alignment', 'race', 'ability_scores', 'feats', 'skills',];
     protected $casts = [
+        'name' => 'string',
+        'health_type' => HealthTypesEnum::class,
+        'gold' => 'float',
+        'alignment' => AlignmentEnum::class,
+        'race' => 'string',
         'ability_scores' => 'array',
         'feats' => 'array',
-        'skills' => 'array',
-        'alignment' => AlignmentEnum::class,
+        'skill_ranks' => 'array',
     ];
     #endregion
     #region Properties

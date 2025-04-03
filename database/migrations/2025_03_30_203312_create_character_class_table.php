@@ -16,9 +16,7 @@ return new class extends Migration
             $table->foreignId('character_id')->constrained()->onDelete('cascade');
             $table->string('name'); // e.g., Fighter, Wizard
             $table->integer('level')->unsigned()->default(1);
-            $table->integer('hit_die')->unsigned()->default(8); // e.g., 8 for Fighter, 6 for Wizard
-            $table->json('racial_traits'); // JSON field for racial traits
-            $table->json('class_features'); // JSON field for class features
+            $table->json('base_health'); // JSON field for base health, e.g., {1: 10, 2:5}; is determined by character
             $table->timestamps();
         });
     }

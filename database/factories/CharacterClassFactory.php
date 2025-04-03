@@ -23,17 +23,13 @@ class CharacterClassFactory extends Factory
             'character_id' => Character::factory()->create(),
             'name' => $this->faker->randomElement(ClassEnum::cases()),
             'level' => $this->faker->numberBetween(1, 20),
-            'hit_die' => $this->faker->randomElement([4, 6, 8, 10, 12]), // e.g., 8 for Fighter, 6 for Wizard
-            'racial_traits' => json_encode([
-                'trait1' => $this->faker->word(),
-                'trait2' => $this->faker->word(),
-                'trait3' => $this->faker->word(),
-            ]),
-            'class_features' => json_encode([
-                'feature1' => $this->faker->word(),
-                'feature2' => $this->faker->word(),
-                'feature3' => $this->faker->word(),
-            ]),
+            'base_health' => [
+                1 => $this->faker->numberBetween(1, 10),
+                2 => $this->faker->numberBetween(1, 10),
+                3 => $this->faker->numberBetween(1, 10),
+                4 => $this->faker->numberBetween(1, 10),
+                5 => $this->faker->numberBetween(1, 10),
+            ]
         ];
     }
 }

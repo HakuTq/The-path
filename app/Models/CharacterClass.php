@@ -13,8 +13,9 @@ class CharacterClass extends Model
     protected $table = 'character_class';
 
     protected $casts = [
-        'racial_traits' => 'array',
-        'class_features' => 'array',
+        'base_health' => 'array',
+        'name' => ClassEnum::class,
+        'level' => 'integer',
     ];
 
     protected $fillable = ['character_id', 'name', 'level', 'hit_die', 'racial_traits', 'class_features'];
