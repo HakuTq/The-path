@@ -11,7 +11,9 @@
         
         <form action="{{ route('logout') }}" method="POST" style="display: inline;">
             @csrf
-            <button type="submit" class="navbar-logout">Log out</button>
+            <button type="submit" class="navbar-logout">
+                <span class="underline-effect">Log out</span>
+            </button>
         </form>
     </div>
 </div>

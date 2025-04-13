@@ -64,6 +64,7 @@ a {
     text-decoration: none;
     min-width: 300px;
     min-height: 235px;
+    border: 2.5px solid rgba(255, 255, 255, 0.068);
     
     &:hover {
         background-color: rgba(255, 255, 255, 0.1);
@@ -106,6 +107,7 @@ a {
     text-decoration: none;
     min-width: 300px;
     min-height: 235px;
+    border: 2.5px solid rgba(255, 255, 255, 0.068);
     
     &:hover {
         background-color: rgba(255, 255, 255, 0.1);
@@ -319,24 +321,40 @@ a {
     display: inline-flex;
     color: white;
     text-decoration: none;
-    font-size: 1rem;
-    margin: 0 .25rem;
+    font-size: 1.1rem;
+    margin: 0 18px;
     transition: 0.3s;
-    background-color: $accent;
-    padding: 8px;
     height: 32px;
     border-radius: 10px;
     align-items: center;
     justify-content: center;
-
-    &:hover {
-        text-decoration: underline;
-        transition: 0.3s
-    }
+    position: relative;
 
     &:nth-child(2) {
         margin-right: 25px;
     }
+}
+
+a.navbar-link:after {
+	content: '';
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    height: 1em;
+    width: 100%;
+    border-bottom: 1px solid;
+    margin-top: 10px;
+    opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale(0,1);
+	transform: scale(0,1);
+}
+
+a.navbar-link:hover:after {
+    opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
 }
 
 .navbar-logout {
@@ -344,22 +362,44 @@ a {
     display: inline-flex;
     color: white;
     text-decoration: none;
-    font-size: 1rem;
-    margin: 0 1rem;
+    font-size: 1.25rem;
+    margin: 0 18px;
     transition: 0.3s;
-    background-color: $secondary-color;
-    padding: 8px;
     height: 32px;
     width: 178px;
     border-radius: 10px;
     transition: 0.3s;
     align-items: center;
     justify-content: center;
+    position: relative;
 
     &:hover {
-        text-decoration: underline;
         transition: 0.3s
     }
+}
+
+.underline-effect {
+    position: relative;
+    display: inline-block;
+}
+
+.underline-effect::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px solid white;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: opacity 0.35s, transform 0.35s;
+}
+
+.navbar-logout:hover .underline-effect::after {
+    opacity: 1;
+    transform: scaleX(1);
 }
 
 .navbar-logo {
