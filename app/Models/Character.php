@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Character extends Model
 {
-    #region Traits
+    #region Basic Model Stuff
     use HasFactory;
     protected $fillable = ['user_id', 'name', 'gold', 'alignment', 'race', 'ability_scores', 'feats', 'skills',];
     protected $casts = [
@@ -46,7 +46,8 @@ class Character extends Model
     {
         return $this->alignment;
     }
-
+    #endregion
+    #region Methods
     public function level(): int
     {
         $level = 0;
@@ -64,13 +65,22 @@ class Character extends Model
         }
         return $classes;
     }
+    public function allClassFeatures()
+    {
+        $allClassFeatures = [];
+
+        foreach($this->characterClass as $characterClass){
+            $allClassFeatures[] = $characterClass->classFeatures;
+        }
+
+        return $allClassFeatures;
+    }
     #endregion
     #region Relationships
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-
     public function characterClasses()
     {
         return $this->hasMany(CharacterClass::class)
