@@ -6,6 +6,8 @@ use App\Enums\AlignmentEnum;
 use App\Enums\HealthTypesEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
+
 
 class Character extends Model
 {
@@ -46,12 +48,16 @@ class Character extends Model
     {
         return $this->alignment;
     }
+    public function characterClasses(): Collection
+    {
+        return $this->characterClass;
+    }    
     #endregion
     #region Methods
     public function level(): int
     {
         $level = 0;
-        foreach ($this->characterClasses as $class) {
+        foreach ($this->characterClasses() as $class) {
             $level += $class->level;
         }
         return $level;
@@ -60,8 +66,8 @@ class Character extends Model
     public function classes(): array
     {
         $classes = [];
-        foreach ($this->characterClasses as $class) {
-            $classes[] = $class->name;
+        foreach ($this->characterClasses() as $characterClass) {
+            $classes[] = $characterClass->name();
         }
         return $classes;
     }
@@ -69,8 +75,10 @@ class Character extends Model
     {
         $allClassFeatures = [];
 
-        foreach($this->characterClass as $characterClass){
-            $allClassFeatures[] = $characterClass->classFeatures;
+        foreach($this->characterClasses() as $characterClass){
+            foreach($characterClass->classFeaturesArray() as $classFeature){
+                $allClassFeatures[] = $classFeature;
+            }
         }
 
         return $allClassFeatures;
@@ -81,11 +89,9 @@ class Character extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function characterClasses()
+    public function characterClass()
     {
-        return $this->hasMany(CharacterClass::class)
-            ->orderBy('level', 'desc')
-            ->with('classFeatures');
+        return $this->hasMany(CharacterClass::class);
     }
     #endregion
 }

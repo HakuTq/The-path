@@ -13,7 +13,7 @@
                     <div class="character-class-container">
                         Classes:
                         @foreach ($character->classes() as $class)
-                            <p>{{ $class }}</p>
+                            <p>{{ $class->label() }}</p>
                         @endforeach
                     </div>
                     <p>{{ $character->level() }}. lvl</p>

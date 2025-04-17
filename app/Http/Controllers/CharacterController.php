@@ -37,27 +37,28 @@ class CharacterController extends Controller
         ]);
     }
 
-    public function store(Request $request)#: RedirectResponse|View
+    public function store(Request $request) #: RedirectResponse|View
     {
         $class = ClassEnum::tryFrom($request->class);
         $character = $request->character;
 
         # Needs checking if right syntax
         #if($class === null) redirect()->back()->withErrors("Class Doesnt exist");
-
-        if(Auth::user()->characters->contains($character)){
-            //Only update level
-            $character = Auth::user()->characters[$character];
-            
-            # IDK if this will save into DB
-            #$character->characterClasses[$class]->level++;
-        }
-        else{
-            //Create a whole new CharacterClass for Character            
-        }
+        //Create a whole new CharacterClass for Character           
     }
 
-    public function destroy($id)
+    public function update(Request $request, Character $character)
     {
+        if ($character->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        //Only update level
+        $character = Auth::user()->characters[$character];
+
+        # IDK if this will save into DB
+        #$character->characterClasses[$class]->level++;
     }
+
+    public function destroy($id) {}
 }
