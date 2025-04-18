@@ -599,9 +599,11 @@ enum ClassEnum: string
         return match ($this) {
             self::Alchemist => [
                 #needs checking with D20
-                $this->newSpecial(ClassFeaturesEnum::bomb, 1),
+                $this->newSpecial(ClassFeaturesEnum::bomb, 0),
                 $this->newSpecial(ClassFeaturesEnum::brew_potion, 1),
-                $this->newSpecial(ClassFeaturesEnum::poison_resistance_1, 1),
+                $this->newSpecial(ClassFeaturesEnum::mutagen, 1),
+                $this->newSpecial(ClassFeaturesEnum::throw_anything, 1),
+                $this->newSpecial(ClassFeaturesEnum::poison_resistance_1, 2),
                 $this->newSpecial(ClassFeaturesEnum::poison_resistance_2, 4),
                 $this->newSpecial(ClassFeaturesEnum::poison_resistance_3, 6),
                 $this->newSpecial(ClassFeaturesEnum::poison_resistance_4, 8),
