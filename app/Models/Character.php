@@ -7,12 +7,14 @@ use App\Enums\HealthTypesEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
-
+use Livewire\WithPagination;
 
 class Character extends Model
 {
     #region Basic Model Stuff
     use HasFactory;
+    use WithPagination;
+    
     protected $fillable = ['user_id', 'name', 'gold', 'alignment', 'race', 'ability_scores', 'feats', 'skills',];
     protected $casts = [
         'name' => 'string',

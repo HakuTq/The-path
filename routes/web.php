@@ -3,7 +3,9 @@
 use App\Livewire\Actions\Logout;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome')->name('welcome');
+Route::get('/', function () {
+    return redirect()->route('characters.index');
+})->name('welcome');
 
 Route::middleware(['auth', 'verified'])->group(function () {
 

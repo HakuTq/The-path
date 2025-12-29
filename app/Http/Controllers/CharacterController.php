@@ -13,7 +13,7 @@ class CharacterController extends Controller
 {
     public function index(): View
     {
-        $characters = Auth::user()->characters;
+        $characters = Auth::user()->characters()->paginate(3);
 
         return view('characters.selection', [
             'characters' => $characters,
