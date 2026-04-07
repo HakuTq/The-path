@@ -10,6 +10,10 @@
                     "type": "string",
                     "description": "The display name of the feature"
                 },
+                "easy": {
+                    "type": "string",
+                    "description": "Short tooltip for the feature"
+                },
                 "type": {
                     "type": "string",
                     "enum": [
@@ -26,42 +30,21 @@
                 "effects": {
                     "type": "array",
                     "items": {
-                        "type": "object",
-                        "properties": {
-                            "type": {
-                                "enum": [
-                                    "bonus",
-                                    "choice",
-                                    "scaling",
-                                    "immunity",
-                                    "utility"
-                                ]
-                            },
-                            "target": {
-                                "type": "string"
-                            },
-                            "value": {
-                                "type": [
-                                    "number",
-                                    "string"
-                                ]
-                            },
-                            "bonus_type": {
-                                "type": "string"
-                            }
-                        },
-                        "required": [
-                            "type"
-                        ]
-                    }
+                        "$ref": "./effect.scheme.json"
+                    },
+                    "minItems": 1
                 }
             },
             "required": [
-                "label",
-                "type",
-                "description"
+                "type"
             ]
         }
     },
+    "required": [
+        "label",
+        "type",
+        "description",
+        "easy"
+    ],
     "additionalProperties": false
 }

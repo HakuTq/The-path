@@ -1,0 +1,8 @@
+{
+    "$schema": "../schemas/feature.schema.json",
+    "rage": {
+        "label": "Rage",
+        "type": "extraordinary",
+        "description": ""
+    }
+}
