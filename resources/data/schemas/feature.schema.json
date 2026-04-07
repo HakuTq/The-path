@@ -1,0 +1,67 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "description": "Schema for Pathfinder class features",
+    "patternProperties": {
+        "^[a-z0-9_]+$": {
+            "type": "object",
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "The display name of the feature"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "extraordinary",
+                        "supernatural",
+                        "spell_like",
+                        "passive"
+                    ],
+                    "description": "The Pathfinder ability type"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "effects": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "bonus",
+                                    "choice",
+                                    "scaling",
+                                    "immunity",
+                                    "utility"
+                                ]
+                            },
+                            "target": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": [
+                                    "number",
+                                    "string"
+                                ]
+                            },
+                            "bonus_type": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "type"
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "label",
+                "type",
+                "description"
+            ]
+        }
+    },
+    "additionalProperties": false
+}

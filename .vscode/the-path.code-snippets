@@ -1,0 +1,22 @@
+{
+    "Pathfinder Feature": {
+        "scope": "json",
+        "prefix": "pf-feat",
+        "body": [
+            "\"${1:feature_slug}\": {",
+            "  \"label\": \"${2:Feature Name}\",",
+            "  \"type\": \"${3|extraordinary,supernatural,spell_like,passive|}\",",
+            "  \"description\": \"${4:Description goes here.}\",",
+            "  \"effects\": [",
+            "    {",
+            "      \"type\": \"${5|bonus,choice,scaling,immunity|}\",",
+            "      \"target\": \"${6:target_stat}\",",
+            "      \"value\": ${7:1},",
+            "      \"bonus_type\": \"${8:untyped}\"",
+            "    }",
+            "  ]",
+            "}${9:,}"
+        ],
+        "description": "Scaffold a new Pathfinder class feature"
+    }
+}
