@@ -11,8 +11,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(\App\Services\SystemDataService::class, function ($app) {
+            return new \App\Services\SystemDataService();
+        });
     }
+
 
     /**
      * Bootstrap any application services.
