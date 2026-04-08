@@ -17,7 +17,16 @@
         "target": {
             "type": "string",
             "enum": [
-                "saves_poison"
+                "saves_poison",
+                "poison",
+                "craft",
+                "craft_alchemy",
+                "fire_damage",
+                "natural_armor",
+                "physical_score",
+                "combat",
+                "class_feature",
+                "duration"
             ]
         },
         "value": {
