@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('character_class', function (Blueprint $table) {
             $table->id();
             $table->foreignId('character_id')->constrained()->onDelete('cascade');
-            $table->string('name'); // e.g., Fighter, Wizard
+            $table->string('name');
             $table->integer('level')->unsigned()->default(1);
             $table->json('base_health'); // JSON field for base health, e.g., {1: 10, 2:5}; is determined by character
             $table->timestamps();
