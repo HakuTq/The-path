@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "description": "Schema for Pathfinder Feats",
+    "patternProperties": {
+        "^[a-z0-9_]+$": {
+            "type": "object",
+            "properties": {
+                "label": {
+                    "type": "string"
+                },
+                "feat_type": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "general",
+                            "combat",
+                            "metamagic",
+                            "teamwork",
+                            "item_creation"
+                        ]
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "prerequisites": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "./prerequisite.schema.json"
+                    }
+                },
+                "effects": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "./effect.schema.json"
+                    }
+                }
+            },
+            "required": [
+                "label",
+                "feat_type",
+                "description"
+            ]
+        }
+    },
+    "additionalProperties": false
+}

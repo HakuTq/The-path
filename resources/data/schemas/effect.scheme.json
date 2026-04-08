@@ -15,20 +15,52 @@
             ]
         },
         "target": {
-            "type": "string"
+            "type": "string",
+            "enum": [
+                "saves_poison"
+            ]
         },
         "value": {
-            "type": [
-                "number",
-                "string"
+            "oneOf": [
+                {
+                    "type": "number"
+                },
+                {
+                    "type": "string"
+                },
+                {
+                    "$ref": "./scaling.scheme.json"
+                }
             ]
         },
         "bonus_type": {
             "type": "string",
             "enum": [
-                "enhancment",
-                "natural"
+                "alchemical",
+                "armor",
+                "circumstance",
+                "competence",
+                "deflection",
+                "dodge",
+                "enhancement",
+                "insight",
+                "luck",
+                "morale",
+                "natural",
+                "profane",
+                "racial",
+                "resistance",
+                "sacred",
+                "shield",
+                "size",
+                "trait",
+                "untyped"
             ]
         }
-    }
+    },
+    "required": [
+        "type",
+        "target",
+        "value"
+    ]
 }

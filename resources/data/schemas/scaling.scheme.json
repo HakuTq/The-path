@@ -1,0 +1,64 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "description": "Schema for features that scale with character or class level",
+    "properties": {
+        "scale_type": {
+            "type": "string",
+            "enum": [
+                "dice",
+                "flat",
+                "multiplier"
+            ],
+            "description": "Whether it adds dice (1d6), a flat number (+1), or multiplies (x2)"
+        },
+        "base_value": {
+            "type": [
+                "string",
+                "number"
+            ],
+            "description": "The starting value at level 1 (e.g., '1d6' or 1)"
+        },
+        "step_value": {
+            "type": [
+                "string",
+                "number"
+            ],
+            "description": "What gets added at each progression step (e.g., '1d6' or 1)"
+        },
+        "progression": {
+            "type": "string",
+            "enum": [
+                "every_level",
+                "odd_levels",
+                "even_levels",
+                "every_three",
+                "every_four"
+            ],
+            "description": "How often the ability scales"
+        },
+        "attribute_modifier": {
+            "type": "string",
+            "enum": [
+                "STR",
+                "DEX",
+                "CON",
+                "INT",
+                "WIS",
+                "CHA",
+                "none"
+            ],
+            "default": "none"
+        },
+        "max_cap": {
+            "type": "number",
+            "description": "Optional maximum value (e.g., max 10d6)"
+        }
+    },
+    "required": [
+        "scale_type",
+        "base_value",
+        "step_value",
+        "progression"
+    ]
+}

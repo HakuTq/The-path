@@ -1,0 +1,81 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "description": "Blueprint for a Pathfinder Class",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "hit_die": {
+            "type": "number",
+            "enum": [
+                6,
+                8,
+                10,
+                12
+            ]
+        },
+        "skill_ranks_per_level": {
+            "type": "number"
+        },
+        "bab_progression": {
+            "type": "string",
+            "enum": [
+                "slow",
+                "medium",
+                "fast"
+            ]
+        },
+        "saves": {
+            "type": "object",
+            "properties": {
+                "fortitude": {
+                    "type": "string",
+                    "enum": [
+                        "poor",
+                        "good"
+                    ]
+                },
+                "reflex": {
+                    "type": "string",
+                    "enum": [
+                        "poor",
+                        "good"
+                    ]
+                },
+                "will": {
+                    "type": "string",
+                    "enum": [
+                        "poor",
+                        "good"
+                    ]
+                }
+            },
+            "required": [
+                "fortitude",
+                "reflex",
+                "will"
+            ]
+        },
+        "levels": {
+            "type": "object",
+            "description": "Keys 1-20 containing arrays of feature slugs",
+            "patternProperties": {
+                "^[1-9]$|^1[0-9]$|^20$": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    },
+    "required": [
+        "name",
+        "hit_die",
+        "skill_ranks_per_level",
+        "bab_progression",
+        "saves",
+        "levels"
+    ]
+}
