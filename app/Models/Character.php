@@ -4,89 +4,78 @@ namespace App\Models;
 
 use App\Enums\AlignmentEnum;
 use App\Enums\HealthTypesEnum;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Collection;
 use Livewire\WithPagination;
 
+/**
+ * @property int $id
+ * @property int $user_id
+ * @property string $name
+ * @property HealthTypesEnum $health_type
+ * @property numeric $gold
+ * @property AlignmentEnum $alignment
+ * @property string $race
+ * @property array<array-key, mixed> $ability_scores
+ * @property string $feats
+ * @property array<array-key, mixed> $skill_ranks
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\CharacterClass> $characterClass
+ * @property-read int|null $character_class_count
+ * @property-read mixed $level
+ * @property-read \App\Models\User $user
+ * @method static \Database\Factories\CharacterFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Character newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Character newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Character query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Character whereAbilityScores($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Character whereAlignment($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Character whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Character whereFeats($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Character whereGold($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Character whereHealthType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Character whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Character whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Character whereRace($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Character whereSkillRanks($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Character whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Character whereUserId($value)
+ * @mixin \Eloquent
+ */
 class Character extends Model
 {
-    #region Basic Model Stuff
+    public $incrementing = false;
+    protected $keyType = 'string';
+
     use HasFactory;
     use WithPagination;
-    
-    protected $fillable = ['user_id', 'name', 'gold', 'alignment', 'race', 'ability_scores', 'feats', 'skills',];
-    protected $casts = [
-        'name' => 'string',
-        'health_type' => HealthTypesEnum::class,
-        'gold' => 'float',
-        'alignment' => AlignmentEnum::class,
-        'race' => 'string',
-        'ability_scores' => 'array',
-        'feats' => 'array',
-        'skill_ranks' => 'array',
+
+    protected $fillable = [
+        'id',
+        'user_id',
+        'name',
+        'gold',
+        'alignment',
+        'race',
+        'ability_scores',
+        'skill_ranks'
     ];
-    #endregion
-    #region Properties
-    public function abilityScore($ability): ?int
+    protected $casts = [
+        'ability_scores' => 'array',
+        'skill_ranks' => 'array',
+        'alignment' => AlignmentEnum::class,
+        'health_type' => HealthTypesEnum::class,
+    ];
+
+    protected function level(): Attribute
     {
-        return $this->ability_scores[$ability] ?? null;
-    }
-    public function abilityModifier($ability): ?int
-    {
-        $score = $this->abilityScore($ability);
-        if ($score === null) return null;
-        return floor(($score - 10) / 2);
-    }
-    public function feats(): array
-    {
-        return $this->feats;
-    }
-    public function skills(): array
-    {
-        return $this->skills;
-    }
-    public function alignment(): AlignmentEnum
-    {
-        return $this->alignment;
-    }
-    public function characterClasses(): Collection
-    {
-        return $this->characterClass;
-    }    
-    #endregion
-    #region Methods
-    public function level(): int
-    {
-        $level = 0;
-        foreach ($this->characterClasses() as $class) {
-            $level += $class->level;
-        }
-        return $level;
+        return Attribute::make(
+            get: fn() => $this->characterLevels()->sum('class_level'),
+        );
     }
 
-    public function classes(): array
-    {
-        $classes = [];
-        foreach ($this->characterClasses() as $characterClass) {
-            $classes[] = $characterClass->name();
-        }
-        return $classes;
-    }
-    public function allClassFeatures()
-    {
-        $allClassFeatures = [];
-
-        foreach($this->characterClasses() as $characterClass){
-            foreach($characterClass->classFeaturesArray() as $classFeature){
-                $allClassFeatures[] = $classFeature;
-            }
-        }
-
-        return $allClassFeatures;
-    }
-    #endregion
-    #region Relationships
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -95,5 +84,4 @@ class Character extends Model
     {
         return $this->hasMany(CharacterClass::class);
     }
-    #endregion
 }

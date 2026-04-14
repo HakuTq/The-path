@@ -6,48 +6,50 @@ use App\Enums\ClassEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int $id
+ * @property int $character_id
+ * @property string $name
+ * @property int $level
+ * @property array<array-key, mixed> $base_health
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Character $character
+ * @method static \Database\Factories\CharacterClassFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CharacterClass newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CharacterClass newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CharacterClass query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CharacterClass whereBaseHealth($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CharacterClass whereCharacterId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CharacterClass whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CharacterClass whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CharacterClass whereLevel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CharacterClass whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CharacterClass whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class CharacterClass extends Model
 {
-    #region Basic Model stuff
     use HasFactory;
+
     protected $table = 'character_class';
+
     protected $casts = [
         'base_health' => 'array',
         'name' => 'string',
         'level' => 'integer',
     ];
-    protected $fillable = ['character_id', 'name', 'level', 'hit_die', 'racial_traits', 'class_features'];
-    #endregion
-    #region Properties
-    public function baseHealth(): array
-    {
-        return $this->base_health;
-    }
-    public function name(): ClassEnum
-    {
-        return ClassEnum::from($this->name);
-    }
-    public function level(): int
-    {
-        return $this->level;
-    }
-    #endregion
-    #region Methods
-    public function classInformation(): array
-    {
-        return $this->name()->classInformation();
-    }
-    public function classFeaturesArray(): array
-    {
-        # Needs checking for right syntax      
-        $classFeatures = $this->name()->classFeatures(); #->where('level', '<=', $this->level);
-        return $classFeatures;
-    }
-    #endregion
-    #region Relationships
+    protected $fillable = [
+        'character_id',
+        'name',
+        'level',
+        'hit_die',
+        'racial_traits',
+        'class_features'
+    ];
+
     public function character()
     {
         return $this->belongsTo(Character::class);
     }
-    #endregion
 }
